@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+  <style>
+  </style>
+  
+<style>
+  :root {
+      /* Primary Colors */
+      --OAA-purple: #3b0357;
+      --OAA-red: #a50b19;
+      --OAA-blue: #005b94;
+      /* Secondary Colors */
+      --OAA-gray: #858585;
+      --OAA-gold: #ffb119;
+      --OAA-green: #26b250;
+  }
+
+  html, .view body { 
+      counter-reset: slideidx; 
+  }
+  
+  body, .view section { 
+      border-radius: 0px; 
+      overflow: visible !important; /* Overrides dzslides' default */
+  }
+  
+  /* A section is a slide. It's size is 800x600, and this will never change */
+  section, .view head > title {
+      font-family: 'Century Gothic', 'Helvetica Neue', arial, sans-serif;
+      font-size: 30px;
+      color: black;
+  }
+
+  .view section:after {
+    counter-increment: slideidx;
+    content: counter(slideidx, decimal-leading-zero);
+    position: absolute; bottom: -80px; right: 100px;
+    color: white;
+  }
+
+  .view head > title {
+    color: white;
+    text-align: center;
+    margin: 1em 0 1em 0;
+  }
+
+  h1, h2 {
+    margin-top: 10%;
+    text-align: left;
+    font-size: 100px;
+  }
+
+  h1.title { margin-right: 50%;}
+
+  h3 {
+    margin: 100px 0 50px 100px;
+  }
+
+  ul {
+      margin: 30px 100px;
+  }
+
+  li > ul {
+      margin: 15px 50px;
+  }
+
+  h4 {
+      font-size: 6em;
+      font-weight: normal;
+      color: var(--OAA-red);
+  }
+  
+  p {
+    /*margin: 75px;*/
+    font-size: 50px;
+  }
+
+  blockquote {
+    background-color: var(--OAA-purple);
+    color: white;
+    font-family: 'Courier New';
+    font-size: 40px;
+    padding: 30px;
+    width: 75%;
+    height: 75%;
+    margin: 75px auto;
+  }
+
+  code {
+      font-family: 'Consolas', monospace;
+      background-color: transparent;
+      white-space: pre-wrap;
+  }
+  
+  /* Figures are displayed full-page, with the caption
+     on top of the image/video */
+  figure {
+    width: 100%;
+    height: 100%;
+  }
+  figure > * {
+    position: absolute;
+  }
+  figure > img, figure > video {
+    width: 100%; height: 100%;
+  }
+  figcaption {
+    margin: 70px;
+    font-size: 50px;
+  }
+
+  /* Classification Banner */
+  header {
+    text-align: center;    
+    text-transform: uppercase;
+    color: var(--OAA-gray);
+    z-index: 999;
+    margin: .5% auto;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 5px 10px 20px; 
+    text-align: right;
+    border-top: 0px solid var(--OAA-gray);
+  }
+
+  /* Transition effect */
+  /* Feel free to change the transition effect for original
+     animations. See here:
+     https://developer.mozilla.org/en/CSS/CSS_transitions
+  
+     For example: for fade-out effect:
+     - change "left"s in the next block to "opacity"
+     - in "Before"/"Now"/"After" block...
+        - in "Before": left: -150% -> opacity:0 
+        - in "Now": left: 0 -> opacity:100
+        - in "After": left: 0 -> opacity:0
+   */
+  section {
+    -moz-transition: left 600ms;
+    -webkit-transition: left 600ms;
+    -ms-transition: left 600ms;
+    transition: left 600ms;
+    -moz-transition-timing-function: cubic-bezier(0.42,0,1.78,1);
+    -webkit-transition-timing-funtction: cubic-bezier(0.42,0,1.78,1);
+    -ms-transition-timing-funtction: cubic-bezier(0.42,0,1.78,1);
+    transition-timing-funtction: cubic-bezier(0.42,0,1.78,1);
+  }
+  .view section {
+    -moz-transition: none;
+    -webkit-transition: none;
+    -ms-transition: none;
+    transition: none;
+  }
+  .view section[aria-selected] {
+    border: 5px red solid;
+  }
+  /* Before */
+  section { left: -150%; }
+  /* Now */
+  section[aria-selected] { left: 0; }
+  /* After */
+  section[aria-selected] ~ section { left: +150%; }
+
+  /* Incremental elements */
+  /* By default, visible */
+  .incremental > * { opacity: 1; }
+  /* The current item */
+  .incremental > *[aria-selected] { opacity: 1; }
+  /* The items to-be-selected */
+  .incremental > *[aria-selected] ~ * { opacity: 0; }
+
+  /* The progressbar, at the bottom of the slides, show the global
+     progress of the presentation. 
+  #progress-bar {
+    height: 2px;
+    background: #AAA;
+  }
+  */
+
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+  
+$if(quotes)$
+  q { quotes: "“" "”" "‘" "’"; }
+$endif$
+
+$if(highlighting-css)$
+  $highlighting-css$
+$endif$
+
+$if(displaymath-css)$
+  .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+$endif$
+
+</style>
+
+$if(math)$
+  $math$
+$endif$
+
+$for(header-includes)$
+  $header-includes$
+$endfor$
+
+</head>
+
+$if(classification)$
+  <header>$classification$</header>
+$endif$
+
+<body>
+<!-- Built-in title page... optional
+  $if(title)$
+  <section class="title">
+    <h1 class="title">$title$</h1>
+    <footer>
+      $if(author)$
+        <span class="author">$for(author)$$author$$sep$, $endfor$</span>
+      $endif$
+       · 
+      $if(date)$
+        <span class="date">$date$</span>
+      $endif$
+    </footer>
+  </section>
+  $endif$
+--!>
+  
+  $for(include-before)$
+  $include-before$
+  $endfor$
+  
+  $body$
+
+  $for(include-after)$
+  $include-after$
+  $endfor$
+
+  $dzslides-core$
+
+</body>
+</html>
