@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
-    <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+    <title>$pagetitle$</title>
     <style> 
 
 :root {
@@ -36,14 +36,7 @@
       url('../fonts/roboto-mono-v12-latin-regular.woff') format('woff');
   }
 
-  html, .view body { counter-reset: slideidx; }
-  body, .view section { overflow: visible !important; } /* slide all the way */ 
-
-  section { padding: 10% 0 10% 0; } /* A section is a slide. */
-  .view section:after {
-      counter-increment: slideidx;
-      content: counter(slideidx, decimal-leading-zero);
-  }
+  p { font-family: 'Franklin Gothic', 'Franklin Libre'; font-size: 2.5em; }
 
   h1, h2, h3 { font-family: 'Century Gothic', 'Didact Gothic'; }
   h1 { font-size: 10em; } 
@@ -53,20 +46,9 @@
   ol, ul { font-size: 2.5em; }
   ul, ul.task-list { list-style: none; margin: 0 1em; }
   ul li:before { content: "— "; color: var(--OAA-blue); }
-  ul.task-list li:before { content: '' }
-  ul.task-list input[type=checkbox] { -webkit-transform: scale(3) }
 
-  p { 
-      font-family: 'Franklin Gothic', 'Franklin Libre';
-      font-size: 2.5em;
-  }
-
-  a {
-      color: var(--OAA-blue);
-      text-decoration: none;
-      font-weight: bold;
-  }
-  a:visited { color: var(--OAA-blue); }
+  a { color: var(--OAA-blue); text-decoration: none; font-weight: bold; }
+  a:visited { color: var(--OAA-purple); }
   a:hover { color: var(--OAA-red); }
 
   span.smallcaps {font-variant: small-caps;}
@@ -78,16 +60,15 @@
       width: 50%;
       padding: 0 5%;
   }
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+
+  div.hanging-indent{ margin-left: 1.5em; text-indent: -1.5em; }
 
   blockquote {
-      background-color: var(--OAA-purple);
-      color: var(--OAA-gold);
-      padding: 5%;
-      margin: auto;
-      border-radius: 50px;
+      background-color: transparent;
+      border-width: thin 0; border-style: solid; border-color: var(--OAA-red);
+      color: var(--OAA-purple); font-style: italic; text-align: center;
+      padding: 5%; margin: auto;
   }
-  blockquote > p { font-family: 'Courier New'; }
 
   code {
       font-family: 'Roboto Mono', 'Consolas', monospace;
@@ -95,7 +76,6 @@
       white-space: pre-wrap;
       font-size: 1.5em;
   }
-  /* Custom code colorscheme */
   code span.im { color: var(--OAA-gold) !important; }
   code span.bu { color: var(--OAA-purple) !important; }
   code span.kw { color: var(--OAA-green) !important; }
@@ -103,25 +83,19 @@
   code span.dv { color: var(--OAA-red) !important; }
   code span.op { color: var(--OAA-purple) !important; }
 
-  img { 
-      margin: auto; 
-      display: block;
-  }
+  img { margin: auto; display: block; }
 
   figcaption {
-      font-size: .5em;
-      text-align: center;
-      color: var(--OAA-gray);
+      font-size: 1.25em; color: var(--OAA-gray);
+      font-style: italic; text-align: center;
   }
 
   /* Classification Banner */
   header {
-      font-family: "Arial", sans-serif;
-      text-align: center;    
-      text-transform: uppercase;
-      color: var(--OAA-gray);
-      z-index: 999;
-      margin: .5% auto;
+      font-family: "Roboto Mono", monospace;
+      text-align: center; text-transform: uppercase;
+      font-size: .8em; color: var(--OAA-gray);
+      z-index: 999; margin: .5% auto;
   }
 
   /* Transition effect */
@@ -135,18 +109,23 @@
   section[aria-selected] { left: 0; } /* Now */
   section[aria-selected] ~ section { left: +150%; } /* After */
 
-  /* Incremental elements */
+  /* Incremental elements (use pandoc `--incremental` option) */
   .incremental > * { opacity: 1; } /* By default, visible */
   .incremental > *[aria-selected] { opacity: 1; } /* The current item */
-  .incremental > *[aria-selected] ~ * { opacity: 0; } /* The items to-be-selected */
+  .incremental > *[aria-selected] ~ * { opacity: 0; } /* Items to-be-selected */
 
-  /* Progressbar */
-  #progress-bar { 
-      background-color: var(--OAA-purple);
-      height: 1%; 
-      border-radius: 5px 5px 0 0;
+  #progress-bar { background-color: var(--OAA-purple); height: 1%; }
+
+  /* DZ Slides Stuff */
+  html, .view body { counter-reset: slideidx; }
+  body, .view section { overflow: visible !important; } /* slide all the way */ 
+
+  section { padding: 10% 0 10% 0; } /* A section is a slide. */
+  .view section:after {
+      counter-increment: slideidx;
+      content: counter(slideidx, decimal-leading-zero);
   }
-
+  
   $if(quotes)$
   q { quotes: "“" "”" "‘" "’"; }
   $endif$
