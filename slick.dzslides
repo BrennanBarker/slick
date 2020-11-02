@@ -1,251 +1,174 @@
 <!DOCTYPE html>
 <head>
-  <meta charset="utf-8">
-  <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
-  <style>
-  </style>
-  
-<style>
-  :root {
-      /* Primary Colors */
-      --OAA-purple: #3b0357;
-      --OAA-red: #a50b19;
-      --OAA-blue: #005b94;
-      /* Secondary Colors */
-      --OAA-gray: #858585;
-      --OAA-gold: #ffb119;
-      --OAA-green: #26b250;
+    <meta charset="utf-8">
+    <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+    <style> 
+
+:root {
+    /* Primary Colors */
+    --OAA-purple: #3b0357; --OAA-red: #a50b19; --OAA-blue: #005b94;
+    /* Secondary Colors */
+    --OAA-gray: #858585; --OAA-gold: #ffb119; --OAA-green: #26b250;
+}
+
+  @font-face {
+      font-family: 'Didact Gothic'; font-style: normal; font-weight: 400;
+      src: local('Didact Gothic Regular'), local('DidactGothic-Regular'),
+      url('./fonts/didact-gothic-v14-latin-regular.woff2') format('woff2'),
+      url('./fonts/didact-gothic-v14-latin-regular.woff') format('woff');
+  }
+  @font-face {
+      font-family: 'Libre Franklin'; font-style: normal; font-weight: 400;
+      src: local('Libre Franklin'), local('LibreFranklin-Regular'),
+      url('./fonts/libre-franklin-v5-latin-regular.woff2') format('woff2'),
+      url('./fonts/libre-franklin-v5-latin-regular.woff') format('woff'); 
+  }
+  @font-face {
+      font-family: 'Libre Franklin'; font-style: italic; font-weight: 400;
+      src: local('Libre Franklin Italic'), local('LibreFranklin-Italic'),
+      url('./fonts/libre-franklin-v5-latin-italic.woff2') format('woff2'),
+      url('./fonts/libre-franklin-v5-latin-italic.woff') format('woff');
   }
 
-  html, .view body { 
-      counter-reset: slideidx; 
-  }
-  
-  body, .view section { 
-      border-radius: 0px; 
-      overflow: visible !important; /* Overrides dzslides' default */
-  }
-  
-  /* A section is a slide. It's size is 800x600, and this will never change */
-  section, .view head > title {
-      font-family: 'Century Gothic', 'Helvetica Neue', arial, sans-serif;
-      font-size: 30px;
-      color: black;
-  }
+  html, .view body { counter-reset: slideidx; }
+  body, .view section { overflow: visible !important; } /* slide all the way */ 
 
+  section { padding: 10% 0 10% 0; } /* A section is a slide. */
   .view section:after {
-    counter-increment: slideidx;
-    content: counter(slideidx, decimal-leading-zero);
-    position: absolute; bottom: -80px; right: 100px;
-    color: white;
+      counter-increment: slideidx;
+      content: counter(slideidx, decimal-leading-zero);
   }
 
-  .view head > title {
-    color: white;
-    text-align: center;
-    margin: 1em 0 1em 0;
+  h1, h2, h3 { font-family: 'Century Gothic', 'Didact Gothic'; }
+  h1 { font-size: 10em; } 
+  h2 { font-size: 5em; margin: 0 0 .3em 0; }
+  h3 { font-size: 10em; font-weight: normal; color: var(--OAA-red); }
+
+  ol, ul { font-size: 2.5em; }
+  ul, ul.task-list { list-style: none; margin: 0 1em; }
+  ul li:before { content: "— "; color: var(--OAA-blue); }
+  ul.task-list li:before { content: '' }
+  ul.task-list input[type=checkbox] { -webkit-transform: scale(3) }
+
+  p { 
+      font-family: 'Franklin Gothic', 'Franklin Libre';
+      font-size: 2.5em;
   }
 
-  h1, h2 {
-    margin-top: 10%;
-    text-align: left;
-    font-size: 100px;
+  a {
+      color: var(--OAA-blue);
+      text-decoration: none;
+      font-weight: bold;
   }
+  a:visited { color: var(--OAA-blue); }
+  a:hover { color: var(--OAA-red); }
 
-  h1.title { margin-right: 50%;}
+  span.smallcaps {font-variant: small-caps;}
+  span.underline {text-decoration: underline;}
 
-  h3 {
-    margin: 100px 0 50px 100px;
+  div.column {
+      display: inline-block;
+      vertical-align: top;
+      width: 50%;
+      padding: 0 5%;
   }
-
-  ul {
-      margin: 30px 100px;
-  }
-
-  li > ul {
-      margin: 15px 50px;
-  }
-
-  h4 {
-      font-size: 6em;
-      font-weight: normal;
-      color: var(--OAA-red);
-  }
-  
-  p {
-    /*margin: 75px;*/
-    font-size: 50px;
-  }
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 
   blockquote {
-    background-color: var(--OAA-purple);
-    color: white;
-    font-family: 'Courier New';
-    font-size: 40px;
-    padding: 30px;
-    width: 75%;
-    height: 75%;
-    margin: 75px auto;
+      background-color: var(--OAA-purple);
+      color: var(--OAA-gold);
+      padding: 5%;
+      margin: auto;
+      border-radius: 50px;
   }
+  blockquote > p { font-family: 'Courier New'; }
 
   code {
       font-family: 'Consolas', monospace;
       background-color: transparent;
       white-space: pre-wrap;
+      font-size: .75em;
   }
-  
-  /* Figures are displayed full-page, with the caption
-     on top of the image/video */
-  figure {
-    width: 100%;
-    height: 100%;
+
+  img { 
+      margin: auto; 
+      display: block;
   }
-  figure > * {
-    position: absolute;
-  }
-  figure > img, figure > video {
-    width: 100%; height: 100%;
-  }
+
   figcaption {
-    margin: 70px;
-    font-size: 50px;
+      font-size: .5em;
+      text-align: center;
+      color: var(--OAA-gray);
   }
 
   /* Classification Banner */
   header {
-    text-align: center;    
-    text-transform: uppercase;
-    color: var(--OAA-gray);
-    z-index: 999;
-    margin: .5% auto;
-  }
-
-  footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding: 5px 10px 20px; 
-    text-align: right;
-    border-top: 0px solid var(--OAA-gray);
+      font-family: "Arial", sans-serif;
+      text-align: center;    
+      text-transform: uppercase;
+      color: var(--OAA-gray);
+      z-index: 999;
+      margin: .5% auto;
   }
 
   /* Transition effect */
-  /* Feel free to change the transition effect for original
-     animations. See here:
-     https://developer.mozilla.org/en/CSS/CSS_transitions
-  
-     For example: for fade-out effect:
-     - change "left"s in the next block to "opacity"
-     - in "Before"/"Now"/"After" block...
-        - in "Before": left: -150% -> opacity:0 
-        - in "Now": left: 0 -> opacity:100
-        - in "After": left: 0 -> opacity:0
-   */
   section {
-    -moz-transition: left 600ms;
-    -webkit-transition: left 600ms;
-    -ms-transition: left 600ms;
-    transition: left 600ms;
-    -moz-transition-timing-function: cubic-bezier(0.42,0,1.78,1);
-    -webkit-transition-timing-funtction: cubic-bezier(0.42,0,1.78,1);
-    -ms-transition-timing-funtction: cubic-bezier(0.42,0,1.78,1);
-    transition-timing-funtction: cubic-bezier(0.42,0,1.78,1);
+      -moz-transition: left 600ms ease-in-out 0s;
+      -webkit-transition: left 600ms ease-in-out 0s;
+      -ms-transition: left 600ms ease-in-out 0s;
+      transition: left 600ms ease-in-out 0s;
   }
-  .view section {
-    -moz-transition: none;
-    -webkit-transition: none;
-    -ms-transition: none;
-    transition: none;
-  }
-  .view section[aria-selected] {
-    border: 5px red solid;
-  }
-  /* Before */
-  section { left: -150%; }
-  /* Now */
-  section[aria-selected] { left: 0; }
-  /* After */
-  section[aria-selected] ~ section { left: +150%; }
+  section { left: -150%; } /* Before */
+  section[aria-selected] { left: 0; } /* Now */
+  section[aria-selected] ~ section { left: +150%; } /* After */
 
   /* Incremental elements */
-  /* By default, visible */
-  .incremental > * { opacity: 1; }
-  /* The current item */
-  .incremental > *[aria-selected] { opacity: 1; }
-  /* The items to-be-selected */
-  .incremental > *[aria-selected] ~ * { opacity: 0; }
+  .incremental > * { opacity: 1; } /* By default, visible */
+  .incremental > *[aria-selected] { opacity: 1; } /* The current item */
+  .incremental > *[aria-selected] ~ * { opacity: 0; } /* The items to-be-selected */
 
-  /* The progressbar, at the bottom of the slides, show the global
-     progress of the presentation. 
-  #progress-bar {
-    height: 2px;
-    background: #AAA;
-  }
-  */
 
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-  
-$if(quotes)$
+  $if(quotes)$
   q { quotes: "“" "”" "‘" "’"; }
-$endif$
+  $endif$
 
-$if(highlighting-css)$
+  $if(highlighting-css)$
   $highlighting-css$
-$endif$
+  $endif$
 
-$if(displaymath-css)$
+  $if(displaymath-css)$
   .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-$endif$
+  $endif$
 
-</style>
+    </style>
 
-$if(math)$
-  $math$
-$endif$
+    $if(math)$
+    $math$
+    $endif$
 
-$for(header-includes)$
-  $header-includes$
-$endfor$
+    $for(header-includes)$
+    $header-includes$
+    $endfor$
 
 </head>
 
 $if(classification)$
-  <header>$classification$</header>
+<header>$classification$</header>
 $endif$
 
 <body>
-<!-- Built-in title page... optional
-  $if(title)$
-  <section class="title">
-    <h1 class="title">$title$</h1>
-    <footer>
-      $if(author)$
-        <span class="author">$for(author)$$author$$sep$, $endfor$</span>
-      $endif$
-       · 
-      $if(date)$
-        <span class="date">$date$</span>
-      $endif$
-    </footer>
-  </section>
-  $endif$
---!>
-  
-  $for(include-before)$
-  $include-before$
-  $endfor$
-  
-  $body$
 
-  $for(include-after)$
-  $include-after$
-  $endfor$
+    $for(include-before)$
+    $include-before$
+    $endfor$
 
-  $dzslides-core$
+    $body$
+
+    $for(include-after)$
+    $include-after$
+    $endfor$
+
+    $dzslides-core$
 
 </body>
 </html>

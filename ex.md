@@ -1,52 +1,67 @@
 ---
-classification: SECRET
+classification: Unclassified
 title: Titles For Less!
 author: Brennan
 date: 1/1/1900
 
 ---
 
-## Let's begin.
+# Let's begin.
 
 ---
 
 ::: columns
 
 :::: column
-#### 3
-Here's an interesting one.
+### 1
+**Interesting.**
+
+Where *do* we go from here?
 ::::
 
 :::: column
-#### 4
-A column slide
+### 2
+**Still looking.**
+For that blue jean berry queen.
 ::::
 
 :::
 
 ---
 
-With Text underneath
+## With Text 
+Underneath a header you'll occasionally find a lot of
+test that you might not normally find elsewhere.
 
   - sometimes with bullets
-  - another bullet
+  - a-nother bullet
 
 ---
 
-### Heres a different test
+And sometimes you just need a task list:
 
-With a <a href="https://www.google.com" target="_blank">link</a>
+- [ ] This is unchecked.
+- [X] This is checked.
+
+## Heres a different test
+Sometimes you'll find yourself writing a really long
+[paragraph](https://www.google.com/search?q=paragraph) and just for kicks end
+up adding a [couple](https://duckduckgo.com) links.
 
 ---
 
-A task list
+::: columns
 
-- [ ] unchecked
-- [X] checked
+:::: column
+### 3
+Here's an interesting one.
+::::
 
----
-
+:::: column
 ![a confounder](confounder.png)
+::::
+
+:::
 
 ---
 
@@ -57,16 +72,15 @@ A task list
 
 ---
     
-Code blocks work too
+### Code blocks work too
 
 ~~~ {.python} 
-    from functools import reduce
-    from operator import mul
 
-    def factorial(n):
-        return reduce(mul, range(2, n+1))
+from functools import reduce
+from operator import mul
+
+def factorial(n):
+    return reduce(mul, range(2, n+1))
 ~~~
 
----
-
-# Questions?
+## Questions?
