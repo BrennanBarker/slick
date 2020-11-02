@@ -72,7 +72,7 @@ Here's an interesting one.
 
 ---
     
-### Code blocks work too
+## Code blocks work too
 
 ~~~ {.python} 
 

@@ -42,7 +42,7 @@
   h1, h2, h3 { font-family: 'Century Gothic', 'Didact Gothic'; }
   h1 { font-size: 10em; } 
   h2 { font-size: 5em; margin: 0 0 .3em 0; }
-  h3 { font-size: 10em; font-weight: normal; color: var(--OAA-red); }
+  h3 { font-size: 9em; font-weight: normal; color: var(--OAA-red); }
 
   ol, ul { font-size: 2.5em; }
   ul, ul.task-list { list-style: none; margin: 0 1em; }
@@ -87,8 +87,15 @@
       font-family: 'Consolas', monospace;
       background-color: transparent;
       white-space: pre-wrap;
-      font-size: .75em;
+      font-size: 1.5em;
   }
+  /* Custom code colorscheme */
+  code span.im { color: var(--OAA-gold) !important; }
+  code span.bu { color: var(--OAA-purple) !important; }
+  code span.kw { color: var(--OAA-green) !important; }
+  code span.cf { color: var(--OAA-blue) !important; }
+  code span.dv { color: var(--OAA-red) !important; }
+  code span.op { color: var(--OAA-purple) !important; }
 
   img { 
       margin: auto; 
@@ -127,6 +134,12 @@
   .incremental > *[aria-selected] { opacity: 1; } /* The current item */
   .incremental > *[aria-selected] ~ * { opacity: 0; } /* The items to-be-selected */
 
+  /* Progressbar */
+  #progress-bar { 
+      background-color: var(--OAA-purple);
+      height: 1%; 
+      border-radius: 5px 5px 0 0;
+  }
 
   $if(quotes)$
   q { quotes: "“" "”" "‘" "’"; }
