@@ -50,6 +50,10 @@ up adding a [couple](https://duckduckgo.com) links.
 
 ---
 
+![svgs work too](images/noun_Radar_467348.svg){width=30%}
+
+---
+
 ::: columns
 
 :::: column
