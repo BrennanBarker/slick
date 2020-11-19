@@ -6,6 +6,10 @@ date: 1/1/1900
 
 ---
 
+<script src=https://cdn.bokeh.org/bokeh/release/bokeh-2.0.0.min.js crossorigin=anonymous></script>
+<script src=https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.0.0.min.js crossorigin=anonymous></script>
+<script src=https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.0.0.min.js crossorigin=anonymous></script>
+<script src="plot.js"></script>
 # Let's begin.
 
 ---
@@ -62,7 +66,7 @@ Here's an interesting one.
 ::::
 
 :::: column
-![a confounder](confounder.png)
+![a confounder](images/confounder.png)
 ::::
 
 :::
@@ -87,4 +91,10 @@ def factorial(n):
     return reduce(mul, range(2, n+1))
 ~~~
 
+---
+
+<div class="bk-root" id="2f6ca24e-e4e9-48c8-b312-54438d551cc1" data-root-id="1001"></div>
+
+
+---
 ## Questions?
