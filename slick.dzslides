@@ -76,12 +76,6 @@
       white-space: pre-wrap;
       font-size: 1.5em;
   }
-  code span.im { color: var(--OAA-gold) !important; }
-  code span.bu { color: var(--OAA-purple) !important; }
-  code span.kw { color: var(--OAA-green) !important; }
-  code span.cf { color: var(--OAA-blue) !important; }
-  code span.dv { color: var(--OAA-red) !important; }
-  code span.op { color: var(--OAA-purple) !important; }
 
   img { margin: auto; display: block; }
 
@@ -89,6 +83,8 @@
       font-size: 1.25em; color: var(--OAA-gray);
       font-style: italic; text-align: center;
   }
+
+  iframe { border: none; }
 
   /* Classification Banner */
   header {
