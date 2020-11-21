@@ -1,0 +1,79 @@
+<style>
+:root {
+    /* Primary Colors */
+    --OAA-purple: #3b0357; --OAA-red: #a50b19; --OAA-blue: #005b94;
+    /* Secondary Colors */
+    --OAA-gray: #858585; --OAA-gold: #ffb119; --OAA-green: #26b250;
+}
+
+  @font-face {              /* Headings */
+      font-family: 'Didact Gothic'; font-style: normal; font-weight: 400;
+      src: local('Didact Gothic Regular'), local('DidactGothic-Regular'),
+      url('./fonts/didact-gothic-v14-latin-regular.woff2') format('woff2'),
+      url('./fonts/didact-gothic-v14-latin-regular.woff') format('woff');
+  }
+  @font-face {              /* Body */
+      font-family: 'Libre Franklin'; font-style: normal; font-weight: 400;
+      src: local('Libre Franklin'), local('LibreFranklin-Regular'),
+      url('./fonts/libre-franklin-v5-latin-regular.woff2') format('woff2'),
+      url('./fonts/libre-franklin-v5-latin-regular.woff') format('woff'); 
+  }
+  @font-face {              /* Body (Italic) */
+      font-family: 'Libre Franklin'; font-style: italic; font-weight: 400;
+      src: local('Libre Franklin Italic'), local('LibreFranklin-Italic'),
+      url('./fonts/libre-franklin-v5-latin-italic.woff2') format('woff2'),
+      url('./fonts/libre-franklin-v5-latin-italic.woff') format('woff');
+  }
+  @font-face {              /* Source Code */
+      font-family: 'Roboto Mono'; font-style: normal; font-weight: 400;
+      src: local(''),
+      url('../fonts/roboto-mono-v12-latin-regular.woff2') format('woff2'),
+      url('../fonts/roboto-mono-v12-latin-regular.woff') format('woff');
+  }
+
+  p { font-family: 'Franklin Gothic', 'Franklin Libre'; font-size: 2.5em; }
+
+  h1, h2, h3 { font-family: 'Century Gothic', 'Didact Gothic'; }
+  h1 { font-size: 10em; } 
+  h2 { font-size: 5em; margin: 0 0 .3em 0; }
+  h3 { font-size: 9em; font-weight: normal; color: var(--OAA-red); }
+
+  ol, ul { font-size: 2.5em; }
+  ul, ul.task-list { list-style: none; margin: 0 1em; }
+  ul li:before { content: "— "; color: var(--OAA-blue); }
+
+  a { color: var(--OAA-blue); text-decoration: none; font-weight: bold; }
+  a:visited { color: var(--OAA-purple); }
+  a:hover { color: var(--OAA-red); }
+
+  blockquote {
+      background-color: transparent;
+      border-width: thin 0; border-style: solid; border-color: var(--OAA-red);
+      color: var(--OAA-purple); font-style: italic; text-align: center;
+      padding: 5%; margin: auto;
+  }
+
+  code {
+      font-family: 'Roboto Mono', 'Consolas', monospace;
+      background-color: transparent;
+      white-space: pre-wrap;
+      font-size: 1.5em;
+  }
+
+  img { margin: auto; display: block; }
+
+  figcaption {
+      font-size: 1.25em; color: var(--OAA-gray);
+      font-style: italic; text-align: center;
+  }
+
+  /* Classification Banner */
+  header {
+      font-family: "Roboto Mono", monospace;
+      text-align: center; text-transform: uppercase;
+      font-size: .8em; color: var(--OAA-gray);
+      z-index: 999; margin: .5% auto;
+  }
+
+  #progress-bar { background-color: var(--OAA-purple); height: 1%; }
+</style>

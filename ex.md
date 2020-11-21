@@ -6,10 +6,6 @@ date: 1/1/1900
 
 ---
 
-<script src=https://cdn.bokeh.org/bokeh/release/bokeh-2.0.0.min.js crossorigin=anonymous></script>
-<script src=https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.0.0.min.js crossorigin=anonymous></script>
-<script src=https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.0.0.min.js crossorigin=anonymous></script>
-<script src="plot.js"></script>
 # Let's begin.
 
 ---
@@ -93,8 +89,23 @@ def factorial(n):
 
 ---
 
-<div class="bk-root" id="2f6ca24e-e4e9-48c8-b312-54438d551cc1" data-root-id="1001"></div>
+<script src="bokeh-autoload-plot.js" id="1351b204-a47f-41d8-bf3a-2ce2b9f9536d"></script>
 
+---
+
+<script id="1000">
+  var xhr = new XMLHttpRequest()
+  xhr.responseType = 'blob';
+  xhr.open('GET', "https://demo.bokeh.org/sliders/autoload.js?bokeh-autoload-element=1000&bokeh-app-path=/sliders&bokeh-absolute-url=https://demo.bokeh.org/sliders", true);
+  
+  xhr.onload = function (event) {
+    var script = document.createElement('script'),
+    src = URL.createObjectURL(event.target.response);
+    script.src = src;
+    document.body.appendChild(script);
+  };
+xhr.send();
+</script>
 
 ---
 ## Questions?
